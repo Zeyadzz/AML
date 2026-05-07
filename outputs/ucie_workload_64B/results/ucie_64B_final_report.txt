@@ -1,0 +1,34 @@
+
+
+
+Proper System Execution Time
+----------------------------
+The 64B UCIe workload was configured as a controlled accelerator transaction sequence:
+- 16 input SRAM writes, each 64 bytes
+- 1 control-register write to start computation
+- status polling until computation completed
+- 16 output SRAM reads, each 64 bytes
+
+Measured workload completion time:
+  5075.203 ns
+
+Equivalent cycles at 1.5 GHz:
+  7612.805 cycles
+
+Accelerator compute latency:
+  1280.000 ns
+
+Input writes observed:
+  16
+
+Output reads observed:
+  16
+
+Workload done timestamp:
+  5092.540 ns
+
+Interpretation:
+  Unlike the earlier fixed-limit TrafficGen run, this measurement is taken from
+  the accelerator endpoint itself. The simulation stops only after the endpoint
+  observes the complete workload sequence and emits WORKLOAD_DONE.
+

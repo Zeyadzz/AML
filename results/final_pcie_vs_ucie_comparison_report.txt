@@ -1,0 +1,195 @@
+Final PCIe vs UCIe Comparison Report
+====================================
+
+Compared Workload
+-----------------
+64B accelerator workload.
+
+Input Logs
+----------
+PCIe SystemC log:
+outputs/pcie_workload_64B/systemc_pcie.log
+
+UCIe SystemC log:
+outputs/ucie_workload_64B/systemc_ucie.log
+
+Parsed Events
+-------------
+PCIe parsed TLP events: 632
+UCIe parsed flit events: 632
+
+Important Methodology Note
+--------------------------
+The gem5 stats.txt file is not used for execution-time extraction in this report because the current gem5.opt run aborts before dumping normal statistics with:
+
+fatal: Can't find port handler type 'tlm_slave'
+
+Therefore, the execution-time metric below is a SystemC timestamp-window metric. It measures the observed TLM transaction activity from the first timestamped event to the last timestamped event in each SystemC log. It should not be presented as full gem5 CPU-cycle execution time.
+
+
+1. Absolute Link / Path Latency
+-------------------------------
+This section compares the log-annotated path latency of generated PCIe TLPs and UCIe flits.
+
+PCIe timing model:
+PCIe latency = Root Complex delay + PCIe link delay + Endpoint delay + Replay delay
+
+Average PCIe model components:
+Root Complex delay: 20.000 ns
+PCIe link transit delay: 150.000 ns
+Endpoint delay: 50.000 ns
+Replay delay: 0.000 ns
+
+Average PCIe total latency:
+20.000 ns + 150.000 ns + 50.000 ns + 0.000 ns
+= 220.000 ns per observed TLP
+
+UCIe timing model:
+UCIe latency = Protocol/flit-packing delay + D2D adapter delay + PHY delay + Retry delay
+
+Average UCIe model components:
+Protocol/flit-packing delay: 5.000 ns
+D2D adapter delay: 5.000 ns
+PHY delay: 2.000 ns
+Retry delay: 0.000 ns
+
+Average UCIe total latency:
+5.000 ns + 5.000 ns + 2.000 ns + 0.000 ns
+= 12.000 ns per observed flit
+
+All observed traffic:
+PCIe observed TLP count: 632
+PCIe average latency: 220.000 ns
+PCIe minimum latency: 220.000 ns
+PCIe maximum latency: 220.000 ns
+
+UCIe observed flit count: 632
+UCIe average latency: 12.000 ns
+UCIe minimum latency: 12.000 ns
+UCIe maximum latency: 12.000 ns
+
+64B workload packets only:
+PCIe 64B TLP count: 32
+PCIe average 64B TLP latency: 220.000 ns
+
+UCIe 64B flit count: 32
+UCIe average 64B flit latency: 12.000 ns
+
+PCIe/UCIe 64B latency ratio: 18.333x
+
+Interpretation:
+The PCIe model has a larger path latency because it represents a board-level route through the Root Complex, PCIe link, and endpoint. UCIe is modeled as a package-level die-to-die interconnect with much smaller PHY delay. Therefore, the UCIe model is latency-favorable, while PCIe has the larger per-packet path latency.
+
+
+2. SystemC Timestamp-Based Execution Time
+-----------------------------------------
+The project requests total execution time or cycles for the accelerator workload under both interconnect configurations. Since gem5 cycle statistics were unavailable, this report uses the SystemC timestamp window.
+
+PCIe timestamp window:
+First observed timestamp: 7337 ps
+Last observed timestamp:  5092540 ps
+PCIe elapsed transaction-window time: 5085203 ps
+PCIe elapsed transaction-window time: 5085.203000 ns
+PCIe elapsed transaction-window time: 5.085203 us
+
+UCIe timestamp window:
+First observed timestamp: 7337 ps
+Last observed timestamp:  5092540 ps
+UCIe elapsed transaction-window time: 5085203 ps
+UCIe elapsed transaction-window time: 5085.203000 ns
+UCIe elapsed transaction-window time: 5.085203 us
+
+PCIe/UCIe timestamp-window ratio: 1.000x
+
+Interpretation:
+This metric captures the transaction window visible in the SystemC logs. If both windows are identical or nearly identical, the current TLM execution schedule is dominated by the workload generator timing rather than accumulated interconnect latency. A true CPU-cycle comparison should be added only after the gem5/TLM external port issue is fixed and stats.txt contains simTicks, simSeconds, or CPU numCycles.
+
+
+3. Protocol Overhead
+--------------------
+This section compares UCIe 256B flit-packing and D2D adapter behavior against standard PCIe TLP routing.
+
+PCIe overhead model:
+packet size = payload bytes + 16B abstract PCIe TLP header
+
+For one 64B PCIe TLP:
+Payload = 64B
+Header = 16B
+Total = 80B
+Overhead = 16 / 80 x 100 = 20%
+Payload efficiency = 64 / 80 x 100 = 80%
+
+UCIe overhead model:
+packet size = one fixed 256B UCIe flit
+
+For one 64B payload packed into one 256B UCIe flit:
+Payload = 64B
+Flit = 256B
+Unused/packing overhead = 192B
+Overhead = 192 / 256 x 100 = 75%
+Payload efficiency = 64 / 256 x 100 = 25%
+
+A. All observed traffic
+-----------------------
+This includes all parsed packet/flit events in the SystemC logs. It may include small memory-mapped bridge accesses and non-64B transactions.
+
+PCIe all observed traffic:
+Observed TLP count: 632
+Total payload bytes: 4448
+Total transmitted bytes: 14560
+Total overhead bytes: 10112
+Overhead: 69.451 %
+Payload efficiency: 30.549 %
+
+UCIe all observed traffic:
+Observed flit count: 632
+Total payload bytes: 4448
+Total transmitted bytes: 161792
+Total overhead bytes: 157344
+Overhead: 97.251 %
+Payload efficiency: 2.749 %
+
+B. Normalized 64B workload packets only
+--------------------------------------
+This filters both logs to entries where payload_bytes = 64.
+
+PCIe 64B workload traffic:
+64B TLP count: 32
+Payload bytes: 2048
+Transmitted bytes: 2560
+Overhead bytes: 512
+Overhead: 20.000 %
+Payload efficiency: 80.000 %
+
+UCIe 64B workload traffic:
+64B flit count: 32
+Payload bytes: 2048
+Transmitted bytes: 8192
+Overhead bytes: 6144
+Overhead: 75.000 %
+Payload efficiency: 25.000 %
+
+UCIe minus PCIe 64B overhead: 55.000 percentage points
+
+Interpretation:
+For 64B transfers, PCIe is more byte-efficient in this model because it adds only a 16B abstract TLP header, producing an 80B packet. UCIe packs the same 64B payload into a fixed 256B flit, so unused flit capacity dominates the overhead. Therefore, the normalized 64B overhead is 20% for PCIe and 75% for UCIe.
+
+However, UCIe overhead improves as payload size approaches the 256B flit size. For a full 256B payload, the UCIe flit is fully utilized, while PCIe still carries its header overhead. Thus, the overhead comparison depends strongly on transaction size.
+
+
+Final Summary
+-------------
+PCIe:
+- 64B TLP latency: 220.000 ns
+- SystemC timestamp transaction window: 5085.203000 ns
+- 64B protocol overhead: 20.000 %
+- 64B payload efficiency: 80.000 %
+
+UCIe:
+- 64B flit latency: 12.000 ns
+- SystemC timestamp transaction window: 5085.203000 ns
+- 64B protocol overhead: 75.000 %
+- 64B payload efficiency: 25.000 %
+
+Main conclusion:
+PCIe has higher modeled path latency due to Root Complex, board-level link, and endpoint traversal. UCIe has lower modeled die-to-die latency, but for small 64B transfers it has higher packetization overhead because the fixed 256B flit is underutilized. Therefore, PCIe is more byte-efficient for small transfers, while UCIe is latency-favorable and becomes more efficient as payload size approaches full 256B flit utilization.
