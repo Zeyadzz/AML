@@ -1,4 +1,0 @@
-
----------- Begin Simulation Statistics ----------
-
----------- End Simulation Statistics   ----------
