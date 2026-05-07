@@ -1,0 +1,8 @@
+
+Info: /IEEE_Std_1666/deprecated: integer report ids are deprecated, use string values: sc_report::register_id()
+Global frequency set at 1000000000000 ticks per second
+============================================================
+EventQueue Dump  (cycle 0)
+------------------------------------------------------------
+<No Events>
+============================================================

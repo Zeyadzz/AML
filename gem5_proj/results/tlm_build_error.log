@@ -1,0 +1,19 @@
+scons: Reading SConscript files ...
+Checking whether __i386__ is declared... (cached) no
+Checking whether __x86_64__ is declared... (cached) yes
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o build/examples/master_port/main.o -c -std=c++17 -DSC_INCLUDE_DYNAMIC_PROCESSES -DTRACING_ON -I/home/asiclab/gem5/build/ARM -I/home/asiclab/gem5/util/systemc/gem5_within_systemc -I/home/asiclab/gem5/ext/systemc/src -I/home/asiclab/gem5/ext -I/home/asiclab/gem5/src -Isrc -Iexamples/common build/examples/master_port/main.cc
+In file included from /home/asiclab/gem5/src/base/logging.hh:51,
+                 from /home/asiclab/gem5/src/base/addr_range.hh:51,
+                 from /home/asiclab/gem5/src/mem/port.hh:54,
+                 from /home/asiclab/gem5/src/mem/external_master.hh:59,
+                 from src/sc_master_port.hh:41,
+                 from src/master_transactor.hh:41,
+                 from build/examples/master_port/main.cc:37:
+/home/asiclab/gem5/src/base/compiler.hh:46:10: fatal error: config/have_deprecated_namespace.hh: No such file or directory
+   46 | #include "config/have_deprecated_namespace.hh"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+scons: *** [build/examples/master_port/main.o] Error 1
+scons: building terminated because of errors.

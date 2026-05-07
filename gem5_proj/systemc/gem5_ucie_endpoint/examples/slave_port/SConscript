@@ -1,0 +1,15 @@
+Import('env')
+Import('deps')
+
+env = env.Clone()
+
+src = [
+    File('main.cc'),
+    File('host_ucie.cc'),
+    File('target_ucie.cc'),
+    File('conv_accel.cc'),
+]
+
+bin = env.Program('gem5.sc', src + deps)
+
+Return('bin')

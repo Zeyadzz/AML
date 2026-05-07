@@ -1,0 +1,503 @@
+
+Info: /IEEE_Std_1666/deprecated: integer report ids are deprecated, use string values: sc_report::register_id()
+Global frequency set at 1000000000000 ticks per second
+============================================================
+EventQueue Dump  (cycle 0)
+------------------------------------------------------------
+<No Events>
+============================================================
+0 s (=) : HostUCIe Constructed
+0 s (=) : TargetUCIe Constructed
+0 s (=) : ConvAccel Constructed
+0 s (=) : sc_main Start gem5 + UCIe + accelerator endpoint simulation
+5 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x0 len=4
+7337 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+7337 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=READ addr=0x0 len=4 num_flits=1
+7337 ps (<) : HostUCIe Sending UCIe flit id=1 addr=0x0 size=4 tail=1
+7337 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x0 len=4
+7337 ps (<) : HostUCIe Flit accepted by downstream target
+7337 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+10 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x4 len=4
+12006 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+12006 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=READ addr=0x4 len=4 num_flits=1
+12006 ps (<) : HostUCIe Sending UCIe flit id=2 addr=0x4 size=4 tail=1
+12006 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x4 len=4
+12006 ps (<) : HostUCIe Flit accepted by downstream target
+12006 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+15 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x8 len=4
+17337 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+17337 ps (<) : TargetUCIe Received flit id=1 payload_size=4 tail=1 addr=0x0
+17337 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+17337 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x0 len=4
+17337 ps (<) : TargetUCIe Started reconstructing payload from flits
+17337 ps (<) : TargetUCIe Reconstructed length now=4
+17337 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+17337 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=READ addr=0x0 len=4
+17337 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+17337 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=READ addr=0x0 len=4
+17337 ps (<) : ConvAccel SRAM READ using local offset
+17337 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+17337 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x0 len=4
+17337 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+17337 ps (<) : HostUCIe Response extension: flit_id=1 ack=1 nak=0
+17337 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+17337 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x0 len=4
+17337 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+17337 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x0 len=4
+17337 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+17337 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+17337 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x0 len=4
+17337 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+17342 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+17342 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x8 len=4 num_flits=1
+17342 ps (<) : HostUCIe Sending UCIe flit id=3 addr=0x8 size=4 tail=1
+17342 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x8 len=4
+17342 ps (<) : HostUCIe Flit accepted by downstream target
+17342 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+20 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0xc len=4
+22006 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+22006 ps (<) : TargetUCIe Received flit id=2 payload_size=4 tail=1 addr=0x4
+22006 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+22006 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x4 len=4
+22006 ps (<) : TargetUCIe Started reconstructing payload from flits
+22006 ps (<) : TargetUCIe Reconstructed length now=4
+22006 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+22006 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=READ addr=0x4 len=4
+22006 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+22006 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=READ addr=0x4 len=4
+22006 ps (<) : ConvAccel SRAM READ using local offset
+22006 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+22006 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x4 len=4
+22006 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+22006 ps (<) : HostUCIe Response extension: flit_id=2 ack=1 nak=0
+22006 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+22006 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x4 len=4
+22006 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+22006 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x4 len=4
+22006 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+22006 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+22006 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x4 len=4
+22006 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+22011 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+22011 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=READ addr=0xc len=4 num_flits=1
+22011 ps (<) : HostUCIe Sending UCIe flit id=4 addr=0xc size=4 tail=1
+22011 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0xc len=4
+22011 ps (<) : HostUCIe Flit accepted by downstream target
+22011 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+25 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x10 len=4
+27342 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+27342 ps (<) : TargetUCIe Received flit id=3 payload_size=4 tail=1 addr=0x8
+27342 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+27342 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x8 len=4
+27342 ps (<) : TargetUCIe Started reconstructing payload from flits
+27342 ps (<) : TargetUCIe Reconstructed length now=4
+27342 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+27342 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x8 len=4
+27342 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+27342 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x8 len=4
+27342 ps (<) : ConvAccel SRAM WRITE using local offset
+27342 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+27342 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x8 len=4
+27342 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+27342 ps (<) : HostUCIe Response extension: flit_id=3 ack=1 nak=0
+27342 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+27342 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x8 len=4
+27342 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+27342 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x8 len=4
+27342 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+27342 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+27342 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x8 len=4
+27342 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+27347 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+27347 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x10 len=4 num_flits=1
+27347 ps (<) : HostUCIe Sending UCIe flit id=5 addr=0x10 size=4 tail=1
+27347 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x10 len=4
+27347 ps (<) : HostUCIe Flit accepted by downstream target
+27347 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+30 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x14 len=4
+32011 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+32011 ps (<) : TargetUCIe Received flit id=4 payload_size=4 tail=1 addr=0xc
+32011 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+32011 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0xc len=4
+32011 ps (<) : TargetUCIe Started reconstructing payload from flits
+32011 ps (<) : TargetUCIe Reconstructed length now=4
+32011 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+32011 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=READ addr=0xc len=4
+32011 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+32011 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=READ addr=0xc len=4
+32011 ps (<) : ConvAccel SRAM READ using local offset
+32011 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+32011 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0xc len=4
+32011 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+32011 ps (<) : HostUCIe Response extension: flit_id=4 ack=1 nak=0
+32011 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+32011 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0xc len=4
+32011 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+32011 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0xc len=4
+32011 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+32011 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+32011 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0xc len=4
+32011 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+32016 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+32016 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x14 len=4 num_flits=1
+32016 ps (<) : HostUCIe Sending UCIe flit id=6 addr=0x14 size=4 tail=1
+32016 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x14 len=4
+32016 ps (<) : HostUCIe Flit accepted by downstream target
+32016 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+35 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x18 len=4
+37347 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+37347 ps (<) : TargetUCIe Received flit id=5 payload_size=4 tail=1 addr=0x10
+37347 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+37347 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x10 len=4
+37347 ps (<) : TargetUCIe Started reconstructing payload from flits
+37347 ps (<) : TargetUCIe Reconstructed length now=4
+37347 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+37347 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x10 len=4
+37347 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+37347 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x10 len=4
+37347 ps (<) : ConvAccel SRAM WRITE using local offset
+37347 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+37347 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x10 len=4
+37347 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+37347 ps (<) : HostUCIe Response extension: flit_id=5 ack=1 nak=0
+37347 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+37347 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x10 len=4
+37347 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+37347 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x10 len=4
+37347 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+37347 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+37347 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x10 len=4
+37347 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+37352 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+37352 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x18 len=4 num_flits=1
+37352 ps (<) : HostUCIe Sending UCIe flit id=7 addr=0x18 size=4 tail=1
+37352 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x18 len=4
+37352 ps (<) : HostUCIe Flit accepted by downstream target
+37352 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+40 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x1c len=4
+42016 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+42016 ps (<) : TargetUCIe Received flit id=6 payload_size=4 tail=1 addr=0x14
+42016 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+42016 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x14 len=4
+42016 ps (<) : TargetUCIe Started reconstructing payload from flits
+42016 ps (<) : TargetUCIe Reconstructed length now=4
+42016 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+42016 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x14 len=4
+42016 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+42016 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x14 len=4
+42016 ps (<) : ConvAccel SRAM WRITE using local offset
+42016 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+42016 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x14 len=4
+42016 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+42016 ps (<) : HostUCIe Response extension: flit_id=6 ack=1 nak=0
+42016 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+42016 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x14 len=4
+42016 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+42016 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x14 len=4
+42016 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+42016 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+42016 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x14 len=4
+42016 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+42021 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+42021 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=READ addr=0x1c len=4 num_flits=1
+42021 ps (<) : HostUCIe Sending UCIe flit id=8 addr=0x1c size=4 tail=1
+42021 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x1c len=4
+42021 ps (<) : HostUCIe Flit accepted by downstream target
+42021 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+45 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x20 len=4
+47352 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+47352 ps (<) : TargetUCIe Received flit id=7 payload_size=4 tail=1 addr=0x18
+47352 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+47352 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x18 len=4
+47352 ps (<) : TargetUCIe Started reconstructing payload from flits
+47352 ps (<) : TargetUCIe Reconstructed length now=4
+47352 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+47352 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x18 len=4
+47352 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+47352 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x18 len=4
+47352 ps (<) : ConvAccel SRAM WRITE using local offset
+47352 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+47352 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x18 len=4
+47352 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+47352 ps (<) : HostUCIe Response extension: flit_id=7 ack=1 nak=0
+47352 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+47352 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x18 len=4
+47352 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+47352 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x18 len=4
+47352 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+47352 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+47352 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x18 len=4
+47352 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+47357 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+47357 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x20 len=4 num_flits=1
+47357 ps (<) : HostUCIe Sending UCIe flit id=9 addr=0x20 size=4 tail=1
+47357 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x20 len=4
+47357 ps (<) : HostUCIe Flit accepted by downstream target
+47357 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+50 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x24 len=4
+52021 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+52021 ps (<) : TargetUCIe Received flit id=8 payload_size=4 tail=1 addr=0x1c
+52021 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+52021 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x1c len=4
+52021 ps (<) : TargetUCIe Started reconstructing payload from flits
+52021 ps (<) : TargetUCIe Reconstructed length now=4
+52021 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+52021 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=READ addr=0x1c len=4
+52021 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+52021 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=READ addr=0x1c len=4
+52021 ps (<) : ConvAccel SRAM READ using local offset
+52021 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+52021 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x1c len=4
+52021 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+52021 ps (<) : HostUCIe Response extension: flit_id=8 ack=1 nak=0
+52021 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+52021 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x1c len=4
+52021 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+52021 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x1c len=4
+52021 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+52021 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+52021 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x1c len=4
+52021 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+52026 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+52026 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x24 len=4 num_flits=1
+52026 ps (<) : HostUCIe Sending UCIe flit id=10 addr=0x24 size=4 tail=1
+52026 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x24 len=4
+52026 ps (<) : HostUCIe Flit accepted by downstream target
+52026 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+55 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x28 len=4
+57357 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+57357 ps (<) : TargetUCIe Received flit id=9 payload_size=4 tail=1 addr=0x20
+57357 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+57357 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x20 len=4
+57357 ps (<) : TargetUCIe Started reconstructing payload from flits
+57357 ps (<) : TargetUCIe Reconstructed length now=4
+57357 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+57357 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x20 len=4
+57357 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+57357 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x20 len=4
+57357 ps (<) : ConvAccel SRAM WRITE using local offset
+57357 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+57357 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x20 len=4
+57357 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+57357 ps (<) : HostUCIe Response extension: flit_id=9 ack=1 nak=0
+57357 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+57357 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x20 len=4
+57357 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+57357 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x20 len=4
+57357 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+57357 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+57357 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x20 len=4
+57357 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+57362 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+57362 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x28 len=4 num_flits=1
+57362 ps (<) : HostUCIe Sending UCIe flit id=11 addr=0x28 size=4 tail=1
+57362 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x28 len=4
+57362 ps (<) : HostUCIe Flit accepted by downstream target
+57362 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+60 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x2c len=4
+62026 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+62026 ps (<) : TargetUCIe Received flit id=10 payload_size=4 tail=1 addr=0x24
+62026 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+62026 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x24 len=4
+62026 ps (<) : TargetUCIe Started reconstructing payload from flits
+62026 ps (<) : TargetUCIe Reconstructed length now=4
+62026 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+62026 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x24 len=4
+62026 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+62026 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x24 len=4
+62026 ps (<) : ConvAccel SRAM WRITE using local offset
+62026 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+62026 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x24 len=4
+62026 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+62026 ps (<) : HostUCIe Response extension: flit_id=10 ack=1 nak=0
+62026 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+62026 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x24 len=4
+62026 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+62026 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x24 len=4
+62026 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+62026 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+62026 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x24 len=4
+62026 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+62031 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+62031 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=READ addr=0x2c len=4 num_flits=1
+62031 ps (<) : HostUCIe Sending UCIe flit id=12 addr=0x2c size=4 tail=1
+62031 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x2c len=4
+62031 ps (<) : HostUCIe Flit accepted by downstream target
+62031 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+65 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x30 len=4
+67362 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+67362 ps (<) : TargetUCIe Received flit id=11 payload_size=4 tail=1 addr=0x28
+67362 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+67362 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x28 len=4
+67362 ps (<) : TargetUCIe Started reconstructing payload from flits
+67362 ps (<) : TargetUCIe Reconstructed length now=4
+67362 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+67362 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x28 len=4
+67362 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+67362 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x28 len=4
+67362 ps (<) : ConvAccel SRAM WRITE using local offset
+67362 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+67362 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x28 len=4
+67362 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+67362 ps (<) : HostUCIe Response extension: flit_id=11 ack=1 nak=0
+67362 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+67362 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x28 len=4
+67362 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+67362 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x28 len=4
+67362 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+67362 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+67362 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x28 len=4
+67362 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+67367 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+67367 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=READ addr=0x30 len=4 num_flits=1
+67367 ps (<) : HostUCIe Sending UCIe flit id=13 addr=0x30 size=4 tail=1
+67367 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x30 len=4
+67367 ps (<) : HostUCIe Flit accepted by downstream target
+67367 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+70 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x34 len=4
+72031 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+72031 ps (<) : TargetUCIe Received flit id=12 payload_size=4 tail=1 addr=0x2c
+72031 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+72031 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x2c len=4
+72031 ps (<) : TargetUCIe Started reconstructing payload from flits
+72031 ps (<) : TargetUCIe Reconstructed length now=4
+72031 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+72031 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=READ addr=0x2c len=4
+72031 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+72031 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=READ addr=0x2c len=4
+72031 ps (<) : ConvAccel SRAM READ using local offset
+72031 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+72031 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x2c len=4
+72031 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+72031 ps (<) : HostUCIe Response extension: flit_id=12 ack=1 nak=0
+72031 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+72031 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x2c len=4
+72031 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+72031 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x2c len=4
+72031 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+72031 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+72031 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x2c len=4
+72031 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+72036 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+72036 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x34 len=4 num_flits=1
+72036 ps (<) : HostUCIe Sending UCIe flit id=14 addr=0x34 size=4 tail=1
+72036 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x34 len=4
+72036 ps (<) : HostUCIe Flit accepted by downstream target
+72036 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+75 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x38 len=4
+77367 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+77367 ps (<) : TargetUCIe Received flit id=13 payload_size=4 tail=1 addr=0x30
+77367 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+77367 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x30 len=4
+77367 ps (<) : TargetUCIe Started reconstructing payload from flits
+77367 ps (<) : TargetUCIe Reconstructed length now=4
+77367 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+77367 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=READ addr=0x30 len=4
+77367 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+77367 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=READ addr=0x30 len=4
+77367 ps (<) : ConvAccel SRAM READ using local offset
+77367 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+77367 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x30 len=4
+77367 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+77367 ps (<) : HostUCIe Response extension: flit_id=13 ack=1 nak=0
+77367 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+77367 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x30 len=4
+77367 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+77367 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x30 len=4
+77367 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+77367 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+77367 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x30 len=4
+77367 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+77372 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+77372 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=WRITE addr=0x38 len=4 num_flits=1
+77372 ps (<) : HostUCIe Sending UCIe flit id=15 addr=0x38 size=4 tail=1
+77372 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x38 len=4
+77372 ps (<) : HostUCIe Flit accepted by downstream target
+77372 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+80 ns (=) : HostUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x3c len=4
+82036 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+82036 ps (<) : TargetUCIe Received flit id=14 payload_size=4 tail=1 addr=0x34
+82036 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+82036 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x34 len=4
+82036 ps (<) : TargetUCIe Started reconstructing payload from flits
+82036 ps (<) : TargetUCIe Reconstructed length now=4
+82036 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+82036 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x34 len=4
+82036 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+82036 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x34 len=4
+82036 ps (<) : ConvAccel SRAM WRITE using local offset
+82036 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+82036 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x34 len=4
+82036 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+82036 ps (<) : HostUCIe Response extension: flit_id=14 ack=1 nak=0
+82036 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+82036 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x34 len=4
+82036 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+82036 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x34 len=4
+82036 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+82036 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+82036 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x34 len=4
+82036 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+82041 ps (<) : HostUCIe peq_cb: BEGIN_REQ from gem5 bridge
+82041 ps (<) : HostUCIe Packing transaction into UCIe flits: cmd=READ addr=0x3c len=4 num_flits=1
+82041 ps (<) : HostUCIe Sending UCIe flit id=16 addr=0x3c size=4 tail=1
+82041 ps (<) : TargetUCIe nb_transport_fw received phase=BEGIN_REQ addr=0x3c len=4
+82041 ps (<) : HostUCIe Flit accepted by downstream target
+82041 ps (<) : HostUCIe Sending END_REQ back to gem5 bridge
+87372 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+87372 ps (<) : TargetUCIe Received flit id=15 payload_size=4 tail=1 addr=0x38
+87372 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+87372 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x38 len=4
+87372 ps (<) : TargetUCIe Started reconstructing payload from flits
+87372 ps (<) : TargetUCIe Reconstructed length now=4
+87372 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+87372 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=WRITE addr=0x38 len=4
+87372 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+87372 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=WRITE addr=0x38 len=4
+87372 ps (<) : ConvAccel SRAM WRITE using local offset
+87372 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+87372 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x38 len=4
+87372 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+87372 ps (<) : HostUCIe Response extension: flit_id=15 ack=1 nak=0
+87372 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+87372 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x38 len=4
+87372 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+87372 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x38 len=4
+87372 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+87372 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+87372 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x38 len=4
+87372 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+92041 ps (<) : TargetUCIe peq_cb: BEGIN_REQ from HostUCIe
+92041 ps (<) : TargetUCIe Received flit id=16 payload_size=4 tail=1 addr=0x3c
+92041 ps (<) : TargetUCIe Sending ACK BEGIN_RESP back to HostUCIe
+92041 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x3c len=4
+92041 ps (<) : TargetUCIe Started reconstructing payload from flits
+92041 ps (<) : TargetUCIe Reconstructed length now=4
+92041 ps (<) : TargetUCIe Tail flit received. Forwarding reconstructed payload to ConvAccel
+92041 ps (<) : ConvAccel nb_transport_fw received phase=BEGIN_REQ cmd=READ addr=0x3c len=4
+92041 ps (<) : TargetUCIe ConvAccel accepted reconstructed payload
+92041 ps (<) : ConvAccel peq_cb BEGIN_REQ cmd=READ addr=0x3c len=4
+92041 ps (<) : ConvAccel SRAM READ using local offset
+92041 ps (<) : ConvAccel Sending BEGIN_RESP back to TargetUCIe
+92041 ps (<) : TargetUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x3c len=4
+92041 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+92041 ps (<) : HostUCIe Response extension: flit_id=16 ack=1 nak=0
+92041 ps (<) : HostUCIe ACK received: removed flit from retry buffer
+92041 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x3c len=4
+92041 ps (<) : TargetUCIe peq_cb: BEGIN_RESP from ConvAccel, forwarding to HostUCIe
+92041 ps (<) : HostUCIe nb_transport_bw received phase=BEGIN_RESP addr=0x3c len=4
+92041 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+92041 ps (<) : HostUCIe peq_cb: BEGIN_RESP received from downstream target
+92041 ps (<) : TargetUCIe nb_transport_fw received phase=END_RESP addr=0x3c len=4
+92041 ps (<) : TargetUCIe peq_cb: END_RESP received from HostUCIe
+============================================================
+EventQueue Dump  (cycle 1000000)
+------------------------------------------------------------
+Event system.cpu.wrapped_function_event (EventFunctionWrapped)
+Flags: 0x7a42
+Scheduled for 1005000, priority 0
+Event system.cpu.wrapped_function_event (EventFunctionWrapped)
+Flags: 0x7a42
+Scheduled for 1001000000, priority 0
+============================================================
+1 us (=) : sc_main End gem5 + UCIe + accelerator endpoint simulation
